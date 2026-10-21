@@ -1,0 +1,41 @@
+{
+  "description": "Shared test set for prompt + cross-tier comparison. Same cases run across baseline, LLM v1/v2/v3, and the A1-A8 multi-agent pipeline. 'actionable' marks whether a signal should open a full incident (true) or be correctly gated to a watch state (false).",
+  "cases": [
+    {
+      "id": "tc-01-payments-lag-critical",
+      "note": "Known Tier-1 topic, high consumer lag -> expect confirmed/P1, business impact, recipients.",
+      "actionable": true,
+      "signal": {"signal_id": "tc-01", "source": "control_center", "entity": {"type": "topic", "id": "payments.settlement"}, "metric_or_event": "consumer_lag", "value": 125000, "unit": "messages", "environment": "prod"}
+    },
+    {
+      "id": "tc-02-fraud-lag",
+      "note": "Known fraud consumer group lagging -> fraud exposure impact.",
+      "actionable": true,
+      "signal": {"signal_id": "tc-02", "source": "control_center", "entity": {"type": "consumer_group", "id": "fraud.scoring"}, "metric_or_event": "consumer_lag", "value": 90000, "unit": "messages", "environment": "prod"}
+    },
+    {
+      "id": "tc-03-cards-produce-errors",
+      "note": "Known Tier-1 topic, produce error surge -> quota/ACL hypotheses.",
+      "actionable": true,
+      "signal": {"signal_id": "tc-03", "source": "control_center", "entity": {"type": "topic", "id": "cards.authorization"}, "metric_or_event": "produce_error_rate", "value": 35, "unit": "errors/s", "environment": "prod"}
+    },
+    {
+      "id": "tc-04-unknown-entity",
+      "note": "Entity not in catalogue -> actionable anomaly but expect uncertainty + escalation, no fabricated recipients.",
+      "actionable": true,
+      "signal": {"signal_id": "tc-04", "source": "control_center", "entity": {"type": "topic", "id": "loans.disbursement"}, "metric_or_event": "consumer_lag", "value": 80000, "unit": "messages", "environment": "prod"}
+    },
+    {
+      "id": "tc-05-unknown-metric",
+      "note": "No baseline rule for metric -> insufficient_evidence; should be gated to watch state (non-actionable).",
+      "actionable": false,
+      "signal": {"signal_id": "tc-05", "source": "prometheus", "entity": {"type": "broker", "id": "broker-3"}, "metric_or_event": "disk_usage", "value": 92, "unit": "percent", "environment": "prod"}
+    },
+    {
+      "id": "tc-06-trades-low-lag-noise",
+      "note": "Low value on Tier-1 topic -> noise/P4; should be gated to watch state (non-actionable).",
+      "actionable": false,
+      "signal": {"signal_id": "tc-06", "source": "control_center", "entity": {"type": "topic", "id": "trades.execution"}, "metric_or_event": "consumer_lag", "value": 1000, "unit": "messages", "environment": "prod"}
+    }
+  ]
+}
