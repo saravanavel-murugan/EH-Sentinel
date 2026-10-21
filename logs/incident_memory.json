@@ -1,0 +1,123 @@
+{
+  "updated_at": "2026-10-20T19:32:59.020296+00:00",
+  "records": [
+    {
+      "incident_id": "incident-001",
+      "entity": "topic:payments.settlement",
+      "metric": "consumer_lag",
+      "classification": "likely",
+      "severity": "P2",
+      "summary": "A consumer lag of 60,000 messages has been detected in the Payments Settlement service, exceeding the static threshold of 50,000. This situation poses a risk of delayed or failed payments and potential regulatory issues. Investigations are recommended to assess consumer throughput against input rates and check for any errors or rebalances in the consumer group.",
+      "closure_recommendation": "continue_monitoring",
+      "knowledge_references": [
+        "runbooks.md :: RB-01 — Consumer lag rising (score=0.635)",
+        "escalation_guidelines.md :: P2 / High (score=0.346)",
+        "runbooks.md :: RB-04 — Producer error / retry surge (score=0.344)"
+      ],
+      "ts": "2026-10-20T07:58:12.235489+00:00"
+    },
+    {
+      "incident_id": "incident-001",
+      "entity": "topic:payments.settlement",
+      "metric": "consumer_lag",
+      "classification": "likely",
+      "severity": "P2",
+      "summary": "A consumer lag of 60,000 messages has been detected in the Payments Settlement service, exceeding the static threshold of 50,000. This situation poses a risk of delayed or failed payments and potential settlement backlogs, classified as a P2 severity incident. Investigations are recommended to assess consumer throughput, check for errors or rebalances, and evaluate partition distribution.",
+      "closure_recommendation": "continue_monitoring",
+      "knowledge_references": [
+        "runbooks.md :: RB-01 — Consumer lag rising (score=0.635)",
+        "escalation_guidelines.md :: P2 / High (score=0.346)",
+        "runbooks.md :: RB-04 — Producer error / retry surge (score=0.344)"
+      ],
+      "ts": "2026-10-20T07:58:13.104089+00:00"
+    },
+    {
+      "incident_id": "inc-topic:payments.settlement",
+      "entity": "topic:payments.settlement",
+      "metric": "tls_cert_expiry_days",
+      "classification": "likely",
+      "severity": null,
+      "summary": "topic:payments.settlement: tls_cert_expiry_days classified insufficient_evidence at severity None. Business impact: Payments delayed or failed; settlement backlog; SLA/regulatory risk. Root cause and remediation consolidated from upstream agents; production actions require human approval.",
+      "closure_recommendation": "continue_monitoring",
+      "knowledge_references": [
+        "(retrieval disabled - root cause & remediation were LLM-inferred)"
+      ],
+      "ts": "2026-10-20T19:11:11.833487+00:00"
+    },
+    {
+      "incident_id": "incident-001",
+      "entity": "topic:payments.settlement",
+      "metric": "consumer_lag",
+      "classification": "likely",
+      "severity": "P2",
+      "summary": "A consumer lag of 60,000 messages has been detected in the Payments Settlement service, exceeding the static threshold of 50,000. This situation poses a risk of delayed or failed payments, leading to potential settlement backlogs and regulatory issues. The likely cause is a downstream consumer being slow or under-capacity, and further diagnostics are recommended to assess consumer throughput and group status.",
+      "closure_recommendation": "continue_monitoring",
+      "knowledge_references": [
+        "runbooks.md :: RB-01 — Consumer lag rising (score=0.635)",
+        "escalation_guidelines.md :: P2 / High (score=0.346)",
+        "runbooks.md :: RB-04 — Producer error / retry surge (score=0.344)"
+      ],
+      "ts": "2026-10-20T19:17:23.371709+00:00"
+    },
+    {
+      "incident_id": "incident-001",
+      "entity": "topic:payments.settlement",
+      "metric": "consumer_lag",
+      "classification": "likely",
+      "severity": "P2",
+      "summary": "A consumer lag of 60,000 messages has been detected in the Payments Settlement service, exceeding the static threshold of 50,000. This situation poses a risk of delayed or failed payments and potential regulatory issues. The likely cause is a downstream consumer that is slow or under-capacity, necessitating further diagnostics to assess consumer throughput and health.",
+      "closure_recommendation": "continue_monitoring",
+      "knowledge_references": [
+        "runbooks.md :: RB-01 — Consumer lag rising (score=0.635)",
+        "escalation_guidelines.md :: P2 / High (score=0.346)",
+        "runbooks.md :: RB-04 — Producer error / retry surge (score=0.344)"
+      ],
+      "ts": "2026-10-20T19:21:30.102607+00:00"
+    },
+    {
+      "incident_id": "incident-001",
+      "entity": "topic:payments.settlement",
+      "metric": "consumer_lag",
+      "classification": "likely",
+      "severity": "P2",
+      "summary": "A consumer lag of 60,000 messages has been detected in the Payments Settlement service, exceeding the static threshold of 50,000. This situation poses a risk of delayed or failed payments, leading to potential settlement backlogs and SLA/regulatory issues. The likely cause is a downstream consumer being slow or under-capacity, and further diagnostics are recommended to assess consumer throughput and group status.",
+      "closure_recommendation": "continue_monitoring",
+      "knowledge_references": [
+        "runbooks.md :: RB-01 — Consumer lag rising (score=0.635)",
+        "escalation_guidelines.md :: P2 / High (score=0.346)",
+        "runbooks.md :: RB-04 — Producer error / retry surge (score=0.344)"
+      ],
+      "ts": "2026-10-20T19:25:11.249787+00:00"
+    },
+    {
+      "incident_id": "incident_001",
+      "entity": "topic:loans.disbursement",
+      "metric": "disbursement_latency_ms",
+      "classification": "likely",
+      "severity": "P3",
+      "summary": "The observed latency of 900 ms for the novel metric 'disbursement_latency_ms' indicates potential issues with downstream processing, possibly due to a slow or under-capacity consumer. While there is currently no reported business impact, the lack of a baseline for this metric raises concerns about future performance and reliability. Recommended next steps include comparing consumer throughput against input rates and checking the number of consumer instances to assess capacity.",
+      "closure_recommendation": "continue_monitoring",
+      "knowledge_references": [
+        "runbooks.md :: RB-01 — Consumer lag rising (score=0.369)",
+        "escalation_guidelines.md :: P4 / Low (score=0.341)",
+        "escalation_guidelines.md :: P3 / Medium (score=0.327)"
+      ],
+      "ts": "2026-10-20T19:31:40.881820+00:00"
+    },
+    {
+      "incident_id": "incident_001",
+      "entity": "topic:atm.deposit",
+      "metric": "TLS Certificate expired. Denied Operations",
+      "classification": "likely",
+      "severity": "P1",
+      "summary": "The TLS certificate for the ATM deposit topic has expired, resulting in denied operations and severely impacting transaction processing capabilities. This incident is classified as P1 due to its critical nature, potentially leading to financial losses and customer dissatisfaction. Immediate investigation into the status of the TLS certificate and related operational impacts is required.",
+      "closure_recommendation": "continue_monitoring",
+      "knowledge_references": [
+        "runbooks.md :: RB-03 — Kafka Connect connector/task failure (score=0.351)",
+        "escalation_guidelines.md :: Escalation triggers (any one fires an escalation) (score=0.345)",
+        "company_policy.md :: Autonomy & approval (score=0.338)"
+      ],
+      "ts": "2026-10-20T19:32:59.020296+00:00"
+    }
+  ]
+}
